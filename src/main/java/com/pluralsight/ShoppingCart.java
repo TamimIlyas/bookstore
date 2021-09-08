@@ -26,6 +26,12 @@ public class ShoppingCart {
    cartItems.remove(index);
   } catch (Exception e) {}
  }
+ public void updateCartItem(int index, int quantity){
+  cartItems.remove(index);
+  try {
+   cartItems.remove(index);
+  } catch (Exception e) {}
+ }
 
  public void addCartItem(CartItem cartItem) {
   cartItems.add(cartItem);

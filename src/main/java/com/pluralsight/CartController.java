@@ -34,14 +34,7 @@ public class CartController extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	private void deleteFromCart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		HttpSession session = request.getSession();
-		String index1 = request.getParameter("index");
-		int index = Integer.parseInt(index1);
-		ShoppingCart shoppingCart = (ShoppingCart) session.getAttribute("Cart");
-		shoppingCart.deleteCartItem(index);
 
-	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException  {
 		// The requested URL path
@@ -56,7 +49,9 @@ public class CartController extends HttpServlet {
 				case "/delete":
 					deleteFromCart(request, response);
 		   break;
-
+				case "/update":
+					updateCart(request, response);
+		   break;
         default:
            break;
 			}
@@ -97,5 +92,22 @@ public class CartController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
+	}
+	protected void deleteFromCart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		HttpSession session = request.getSession();
+		String index1 = request.getParameter("index");
+		int index = Integer.parseInt(index1);
+		ShoppingCart shoppingCart = (ShoppingCart) session.getAttribute("Cart");
+		shoppingCart.deleteCartItem(index);
+
+	}
+	protected void updateCart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		HttpSession session = request.getSession();
+		String index2 = request.getParameter("index");
+		int index = Integer.parseInt(index2);
+		String quantity1 = request.getParameter("quantity");
+		int quantity = Integer.parseInt(quantity1);
+		ShoppingCart shoppingCart = (ShoppingCart) session.getAttribute("Cart");
+		shoppingCart.updateCartItem(index, quantity);
 	}
 }
