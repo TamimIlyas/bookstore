@@ -34,6 +34,14 @@ public class CartController extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+	private void deleteFromCart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		HttpSession session = request.getSession();
+		String index1 = request.getParameter("index");
+		int index = Integer.parseInt(index1);
+		ShoppingCart shoppingCart = (ShoppingCart) session.getAttribute("Cart");
+		shoppingCart.deleteCartItem(index);
+
+	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException  {
 		// The requested URL path
@@ -45,6 +53,10 @@ public class CartController extends HttpServlet {
 				case "/addcart":
 					 addToCart(request, response);
            break;
+				case "/delete":
+					deleteFromCart(request, response);
+		   break;
+
         default:
            break;
 			}

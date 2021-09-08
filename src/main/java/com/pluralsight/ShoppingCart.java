@@ -1,5 +1,6 @@
 package com.pluralsight;
 
+import java.sql.DriverManager;
 import java.util.ArrayList;
 import javax.inject.Inject;
 
@@ -12,10 +13,18 @@ public class ShoppingCart {
   return cartItems.size();
  }
 
+
  public void addCartItem(Book book, int quantity) {
    CartItem cartItem = new CartItem(book, quantity);
    cartItems.add(cartItem);
    calculateOrderTotal();
+ }
+
+ public void deleteCartItem(int index){
+  cartItems.remove(index);
+  try {
+   cartItems.remove(index);
+  } catch (Exception e) {}
  }
 
  public void addCartItem(CartItem cartItem) {
