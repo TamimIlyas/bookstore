@@ -19,6 +19,10 @@ public class ShoppingCart {
    cartItems.add(cartItem);
    calculateOrderTotal();
  }
+ public void addCartItem(CartItem cartItem) {
+  cartItems.add(cartItem);
+ }
+
 
  public void deleteCartItem(int index){
   cartItems.remove(index);
@@ -30,11 +34,9 @@ public class ShoppingCart {
   cartItems.remove(index);
   try {
    cartItems.remove(index);
-  } catch (Exception e) {}
- }
-
- public void addCartItem(CartItem cartItem) {
-  cartItems.add(cartItem);
+  } catch (Exception e) {
+   e.printStackTrace();
+  }
  }
 
  public CartItem getCartItem(int iItemIndex) {
