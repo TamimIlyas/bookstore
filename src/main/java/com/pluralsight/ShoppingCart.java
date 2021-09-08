@@ -23,20 +23,19 @@ public class ShoppingCart {
   cartItems.add(cartItem);
  }
 
-
- public void deleteCartItem(int index){
-  cartItems.remove(index);
-  try {
-   cartItems.remove(index);
-  } catch (Exception e) {}
- }
- public void updateCartItem(int index, int quantity){
+ public void updateCartItem(int index, int quantity) {
   cartItems.remove(index);
   try {
    cartItems.remove(index);
   } catch (Exception e) {
    e.printStackTrace();
   }
+ }
+ public void deleteCartItem(int index){
+  cartItems.remove(index);
+  try {
+   cartItems.remove(index);
+  } catch (Exception e) {}
  }
 
  public CartItem getCartItem(int iItemIndex) {
