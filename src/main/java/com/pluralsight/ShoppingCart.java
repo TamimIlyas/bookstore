@@ -35,7 +35,7 @@ public class ShoppingCart {
   try {
    cartItems.remove(index);
   } catch (Exception e) {
-
+   e.printStackTrace();
   }
  }
 
