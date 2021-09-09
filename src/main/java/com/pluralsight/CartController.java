@@ -93,7 +93,7 @@ public class CartController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
-	protected void deleteFromCart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+	private void deleteFromCart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		HttpSession session = request.getSession();
 		String index1 = request.getParameter("index");
 		int index = Integer.parseInt(index1);
@@ -101,7 +101,7 @@ public class CartController extends HttpServlet {
 		shoppingCart.deleteCartItem(index);
 
 	}
-	protected void updateCart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+	private void updateCart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		HttpSession session = request.getSession();
 		String index2 = request.getParameter("index");
 		int index = Integer.parseInt(index2);
