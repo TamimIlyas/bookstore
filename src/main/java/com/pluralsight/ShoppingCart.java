@@ -24,15 +24,14 @@ public class ShoppingCart {
  }
 
  public void updateCartItem(int index, int quantity) {
-  cartItems.remove(index);
   try {
-   cartItems.remove(index);
+   CartItem cartItem = cartItems.get(index);
+   cartItem.setQuantity(quantity);
   } catch (Exception e) {
    e.printStackTrace();
   }
  }
  public void deleteCartItem(int index){
-  cartItems.remove(index);
   try {
    cartItems.remove(index);
   } catch (Exception e) {}
